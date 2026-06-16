@@ -1,13 +1,10 @@
 const express = require("express");
-
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.json({
-    name: "Vishal Singh",
-    role: "MERN Stack Developer",
-    ai: true,
-  });
-});
+const {
+  getProfile,
+} = require("../controllers/profileController");
+
+router.get("/", getProfile);
 
 module.exports = router;
