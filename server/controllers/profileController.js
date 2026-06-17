@@ -4,14 +4,15 @@ const getProfile = async (req, res) => {
   try {
     const db = getDB();
 
-    const profile = await db
-      .collection("profile")
-      .findOne({});
+    const profile = await db.collection("profile").findOne({});
 
-    res.json(profile);
+    res.status(200).json(profile);
   } catch (error) {
+    console.error(error);
+
     res.status(500).json({
-      message: "Internal Server Error",
+      success: false,
+      message: "Failed to fetch profile",
     });
   }
 };
