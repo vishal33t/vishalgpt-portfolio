@@ -1,4 +1,13 @@
+import useProfile from "../hooks/useProfile";
 function Hero() {
+  const profile = useProfile();
+  if (!profile) {
+  return (
+    <div className="text-white text-center mt-20">
+      Loading...
+    </div>
+  );
+}
   return (
     <section className="min-h-screen flex items-center bg-slate-950">
 
@@ -21,20 +30,18 @@ function Hero() {
             I'm
 
             <span className="text-blue-500">
-              {" "}Vishal Singh
+              {" "}{profile.name}
             </span>
 
           </h1>
 
           <h2 className="text-2xl text-slate-300 mt-6">
-            MERN Stack Developer
+            {profile.title}
           </h2>
 
           <p className="text-slate-400 mt-8 max-w-xl leading-8">
 
-            Passionate about building scalable web applications,
-            integrating AI into real-world products, and creating
-            modern digital experiences.
+           {profile.bio}
 
           </p>
 
