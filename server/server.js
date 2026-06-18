@@ -5,6 +5,7 @@ const { connectDB } = require("./config/db");
 const profileRoutes = require("./routes/profileRoutes");
 const projectRoutes = require("./routes/projectRoutes");
 const skillRoutes = require("./routes/skillRoutes");
+const adminRoutes = require("./routes/adminRoutes");
 const app = express();
 
 // Middleware
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use("/api/profile", profileRoutes);
 app.use("/api/projects", projectRoutes);
 app.use("/api/skills", skillRoutes);
+app.use("/api/admin", adminRoutes);
 
 // Test Route
 app.get("/", (req, res) => {
