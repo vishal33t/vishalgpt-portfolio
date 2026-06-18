@@ -1,64 +1,61 @@
-function AboutSection() {
+import useProfile from "../hooks/useProfile";
+
+function About() {
+  const profile = useProfile();
+
+  if (!profile) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <section className="bg-slate-950 py-20 px-6">
+    <section className="py-20 px-6 bg-slate-950">
+      <div className="max-w-6xl mx-auto">
 
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <h2 className="text-4xl font-bold text-white mb-8">
+          About Me
+        </h2>
 
-        {/* Left Side */}
+        <p className="text-slate-300 text-lg leading-8 mb-8">
+          {profile.about}
+        </p>
 
-        <div>
+        <div className="grid md:grid-cols-3 gap-6">
 
-          <h2 className="text-4xl font-bold text-white mb-6">
-            About Me
-          </h2>
+          <div className="bg-slate-800 p-6 rounded-xl">
+            <h3 className="text-blue-400 font-bold">
+              College
+            </h3>
 
-          <p className="text-slate-300 leading-8">
-            I'm <span className="text-blue-500 font-semibold">
-              Vishal Singh
-            </span>, a B.Tech Information Technology student and
-            MERN Stack Developer who enjoys building responsive,
-            scalable, and user-friendly web applications.
-          </p>
-
-          <p className="text-slate-400 mt-5 leading-8">
-            I love solving real-world problems with technology and
-            continuously explore AI integration in modern web
-            applications. My goal is to become a skilled Full Stack
-            Developer capable of building impactful products.
-          </p>
-
-        </div>
-
-        {/* Right Side */}
-
-        <div className="grid grid-cols-2 gap-5">
-
-          <div className="bg-slate-900 rounded-xl p-6 text-center">
-            <h3 className="text-4xl font-bold text-blue-500">1+</h3>
-            <p className="text-slate-300 mt-2">MERN Project</p>
+            <p className="text-white mt-2">
+              {profile.college}
+            </p>
           </div>
 
-          <div className="bg-slate-900 rounded-xl p-6 text-center">
-            <h3 className="text-4xl font-bold text-blue-500">7+</h3>
-            <p className="text-slate-300 mt-2">Technologies</p>
+          <div className="bg-slate-800 p-6 rounded-xl">
+            <h3 className="text-blue-400 font-bold">
+              Degree
+            </h3>
+
+            <p className="text-white mt-2">
+              {profile.degree}
+            </p>
           </div>
 
-          <div className="bg-slate-900 rounded-xl p-6 text-center">
-            <h3 className="text-4xl font-bold text-blue-500">2023</h3>
-            <p className="text-slate-300 mt-2">Started B.Tech</p>
-          </div>
+          <div className="bg-slate-800 p-6 rounded-xl">
+            <h3 className="text-blue-400 font-bold">
+              Graduation
+            </h3>
 
-          <div className="bg-slate-900 rounded-xl p-6 text-center">
-            <h3 className="text-4xl font-bold text-blue-500">AI</h3>
-            <p className="text-slate-300 mt-2">Learning & Building</p>
+            <p className="text-white mt-2">
+              {profile.graduationyear}
+            </p>
           </div>
 
         </div>
 
       </div>
-
     </section>
   );
 }
 
-export default AboutSection;
+export default About;
