@@ -1,40 +1,88 @@
-function Navbar() {
-  return (
-    <nav className="bg-slate-900 border-b border-slate-800 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-5">
+import { FaMoon, FaSun, FaBars } from "react-icons/fa";
+import { useContext, useState } from "react";
+import { ThemeContext } from "../context/ThemeContext";
 
-        {/* Logo */}
-        <h1 className="text-3xl font-bold text-blue-500 cursor-pointer">
+function Navbar() {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/10 border-b border-white/10">
+
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+
+        <h1 className="text-2xl font-bold text-cyan-400">
           VishalGPT
         </h1>
 
-        {/* Navigation Links */}
-        <ul className="flex items-center gap-8 text-white font-medium">
+        {/* Desktop Menu */}
 
-          <li className="hover:text-blue-500 cursor-pointer transition">
-            Home
-          </li>
+        <div className="hidden md:flex gap-8 items-center">
 
-          <li className="hover:text-blue-500 cursor-pointer transition">
-            About
-          </li>
+          <a href="#about">About</a>
 
-          <li className="hover:text-blue-500 cursor-pointer transition">
-            Projects
-          </li>
+          <a href="#skills">Skills</a>
 
-          <li className="hover:text-blue-500 cursor-pointer transition">
-            Contact
-          </li>
+          <a href="#projects">Projects</a>
 
-        </ul>
+          <a href="#experience">Experience</a>
 
-        {/* Resume Button */}
-        <button className="bg-blue-600 hover:bg-blue-700 transition px-5 py-2 rounded-lg text-white font-semibold">
-          Resume
+          <a href="#contact">Contact</a>
+
+          <a
+            href="/resume/Vishal_Singh_Resume.pdf"
+            download
+            className="bg-cyan-500 text-white px-5 py-2 rounded-full hover:scale-105 transition"
+          >
+            Resume
+          </a>
+
+          <button
+            onClick={toggleTheme}
+            className="text-xl"
+          >
+            {theme === "dark" ? <FaSun /> : <FaMoon />}
+          </button>
+
+        </div>
+
+        {/* Mobile Button */}
+
+        <button
+          className="md:hidden text-white"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <FaBars />
         </button>
 
       </div>
+
+      {menuOpen && (
+
+        <div className="md:hidden flex flex-col gap-4 px-6 pb-6 bg-slate-900">
+
+          <a href="#about">About</a>
+
+          <a href="#skills">Skills</a>
+
+          <a href="#projects">Projects</a>
+
+          <a href="#experience">Experience</a>
+
+          <a href="#contact">Contact</a>
+
+          <a
+            href="/resume/Vishal_Singh_Resume.pdf"
+            download
+          >
+            Resume
+          </a>
+
+        </div>
+
+      )}
+
     </nav>
   );
 }

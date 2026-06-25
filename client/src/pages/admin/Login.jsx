@@ -19,11 +19,13 @@ function Login() {
 
       localStorage.setItem("token", res.data.token);
 
-      alert("Login Successful!");
+window.location.href = "/admin/dashboard";
 
-    } catch (err) {
+    } catch {
       alert("Invalid Credentials");
     }
+
+
   };
 
   return (

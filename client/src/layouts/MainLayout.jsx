@@ -1,6 +1,6 @@
 function MainLayout({ children }) {
   return (
-    <div className="bg-slate-950 min-h-screen overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden bg-white text-slate-900 dark:bg-slate-950 dark:text-white">
       {children}
     </div>
   );
