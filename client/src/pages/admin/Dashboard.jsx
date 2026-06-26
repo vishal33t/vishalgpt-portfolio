@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ProfileManager from "../../components/admin/ProfileManager";
 import SkillsManager from "../../components/admin/SkillsManager";
-
+import ProjectsManager from "../../components/admin/ProjectsManager";
 function Dashboard() {
   const [active, setActive] = useState("profile");
 
@@ -63,17 +63,7 @@ function Dashboard() {
 
         {active === "skills" && <SkillsManager />}
 
-        {active === "projects" && (
-          <div className="bg-slate-800 rounded-xl p-8 text-white">
-            <h2 className="text-2xl font-bold mb-4">
-              Projects Manager
-            </h2>
-
-            <p>
-              Next step: add, edit and delete projects.
-            </p>
-          </div>
-        )}
+       {active === "projects" && <ProjectsManager />}
 
       </div>
 

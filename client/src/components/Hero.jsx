@@ -92,7 +92,7 @@ function Hero() {
               </a>
 
               <a
-                href="https://linkedin.com"
+                href="https://linkedin.com/in/vishal-singh-33t"
                 target="_blank"
                 rel="noreferrer"
                 className="w-12 h-12 flex items-center justify-center rounded-full bg-slate-800 hover:bg-cyan-500 transition text-white"
@@ -139,7 +139,7 @@ function Hero() {
     <div className="relative overflow-hidden rounded-3xl border border-cyan-500/20 shadow-2xl">
 
       <img
-        src="images/profile.jpeg"
+        src="images/profile-2.jpeg"
         alt="Vishal Singh"
         className="
           w-[280px]
